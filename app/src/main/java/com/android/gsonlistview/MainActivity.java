@@ -90,11 +90,18 @@ public class MainActivity extends AppCompatActivity {
 
     };
     private void Gsonjx(String date) { //gson解析部分
+            //Json的解析类对象
         JsonParser parser = new JsonParser();
+
+        //json通过gson的包转JsonArray  ,将JSON的String 转成一个JsonArray对象
         JsonArray jsonArray = parser.parse(date).getAsJsonArray();
+
         Gson gson = new Gson();
+
         listuser = new ArrayList<>();
+         //加强for循环遍历JsonArray
         for (JsonElement user : jsonArray) {
+            ////使用GSON，直接转成Bean对象
             user userBean = gson.fromJson(user, user.class);
             listuser.add(userBean);
         }
