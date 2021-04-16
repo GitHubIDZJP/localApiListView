@@ -2,11 +2,14 @@ package com.android.gsonlistview;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -17,14 +20,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import okhttp3.OkHttpClient;
+
 import okhttp3.Request;
 import okhttp3.Response;
 
 
-public class MainActivity extends Activity {
-
-
-
+public class MainActivity extends AppCompatActivity {
     public String date;
     public ListView lv;
     public ArrayList<user> listuser;
@@ -77,6 +78,7 @@ public class MainActivity extends Activity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 1:
+                       //这个是先打印的值：刚介入界面时打印出来的，0.5秒后，消失
                     Toast.makeText(MainActivity.this,""+date,Toast.LENGTH_LONG).show();
                     break;
                 case 2:
@@ -100,7 +102,5 @@ public class MainActivity extends Activity {
         message.what = 2;
         han.sendMessage(message);
     }
-
-
-
 }
+
