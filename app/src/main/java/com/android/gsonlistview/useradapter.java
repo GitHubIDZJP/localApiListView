@@ -101,10 +101,12 @@ public class useradapter extends BaseAdapter {
             //getDrawable(R.mipmap.ic_launcher)已经过时了，现在是要 getDrawable(R.mipmap.ic_launcher, null)，就是加个参数theme,并且为null
         } else {
             //图片加载 类似iOS的sdwemimage
-            Picasso.with(con)
+           /*Picasso.with(con)
                     .load(list.get(position).getPic().toString())
                     .placeholder(R.mipmap.ic_launcher)//图片加载中时显示原始机器人图
-                    .into(img);
+                    .into(img);        */
+              //上面能方法也是可以的，记住 图片地址一定要有用
+            Picasso.with(con).load(list.get(position).getPic()).into(img);
         }
         return view;
     }
