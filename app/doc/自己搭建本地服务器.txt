@@ -1,0 +1,52 @@
+自己搭建本地服务器：
+然后自己创建json文件对象testServe.json
+浏览器地址栏输入:http://127.0.0.1/testServe.json 就能看到自己放到本地的服务器地址的json文件，放到项目里时得用把端口号改为10.0.2.2就行了，模拟器数据就出来了！
+
+Apache配置:
+搭建本地网站服务器
+http://localhost
+http://127.0.0.1         iOS调试APP时最好弄成http://127.0.0.1/testServe.json，弄成http://localhost在项目时会提示解析失败
+mac搭建本地服务器
+https://www.jianshu.com/p/0e7660309f14
+开启：
+sudo apachectl start
+关闭：
+sudo apachectl stop
+重启：
+sudo apachectl restart
+
+Open Read Only, Edit anyway, Recover, Delete it, Quit, Abort:
+打开只读，编辑，恢复，删除它，退出，中止:
+
+/Library/WebServer/Documents
+
+sudo mkdir ~/Sites 
+
+/Users/zoujunping/
+sudo mkdir ~/Users/zoujunping/Apache 创建Apache空文件
+ cd /etc/apache2 打开httpd.conf 
+sudo vim httpd.conf 修改系统路径 
+
+Forbidden,You don't have permission to access this resource.
+
+设置vim 永久显示行号
+
+sudo mkdir ~/Apache/file
+sudo mkdir file
+httpd.conf要更改的路径：    /Users/zoujunping/Apache/file
+cd /etc/apache2
+sudo vim httpd.conf
+
+LoadModule php7_module libexec/apache2/libphp7.so 把这句最前面那个#号去调
+把237行改为下面这2句 获取权限
+<Directory />
+Options Indexes FollowSymLinks  
+    AllowOverride None
+</Directory>
+:wq! 就行
+终端输入http://localhost 或者http://127.0.0.1
+
+
+/System/Library/LaunchDaemons/org.apache.httpd.plist: Operation now in progress（操作正在进行中）
+
+
